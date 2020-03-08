@@ -1,0 +1,64 @@
+import AWS from 'aws-sdk'
+
+class DynamoDBWrapper {
+  constructor(dynamoCredentials: any) {
+    validateCredentials(dynamoCredentials)
+
+    AWS.config.update(dynamoCredentials)
+    AWS.config.update({
+      region: 'us-east-2',
+    })
+
+  }
+
+  async readTable(table: string, expression: string, expressionValues: object) {
+    const docClient = new AWS.DynamoDB.DocumentClient()
+
+    const params = {
+      TableName : table,
+      KeyConditionExpression: expression,
+      ExpressionAttributeValues: expressionValues,
+    }
+
+    return new Promise((resolve, reject) => {
+      docClient.query(params, function(err: any, data: any) {
+        if (err) {
+          reject(err)
+        } else {
+          resolve(data)
+        }
+      })
+    })
+  }
+
+  async writeTable(table: string, item: object) {
+    const docClient = new AWS.DynamoDB.DocumentClient()
+
+    const params = {
+      TableName: table,
+      Item: item,
+    }
+
+    return new Promise((resolve, reject) => {
+      docClient.put(params, function(err: any, data: any) {
+        if (err) {
+          reject(err)
+        } else {
+          resolve(data)
+        }
+      })
+    })
+  }
+}
+
+function validateCredentials(credentials: any) {
+  if (!credentials.accessKeyId){
+    throw new Error('Could not find `accessKeyId` in credentials')
+  }
+
+  if (!credentials.secretAccessKey) {
+    throw new Error('Could not find `secretAccessKey` in credentials')
+  }
+}
+
+export default DynamoDB
