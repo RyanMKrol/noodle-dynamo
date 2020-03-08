@@ -1,12 +1,12 @@
 import AWS from 'aws-sdk'
 
 class DynamoDBWrapper {
-  constructor(dynamoCredentials: any) {
+  constructor(dynamoCredentials: any, region: string) {
     validateCredentials(dynamoCredentials)
 
     AWS.config.update(dynamoCredentials)
     AWS.config.update({
-      region: 'us-east-2',
+      region,
     })
 
   }
@@ -61,4 +61,4 @@ function validateCredentials(credentials: any) {
   }
 }
 
-export default DynamoDB
+export default DynamoDBWrapper

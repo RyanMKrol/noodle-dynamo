@@ -8,7 +8,7 @@ Store your credentials somewhere the code can access them.
 ```
 {
   "accessKeyId": "an access ID!",
-  "secretAccessKey": "a secrete access key!"
+  "secretAccessKey": "a secret access key!"
 }
 
 ```
@@ -20,7 +20,7 @@ Create your wrapper, and then start making calls!
 import DynamoDBWrapper from 'noodle-dynamo'
 import dynamoCredentials from '.../credentials/dynamo.json'
 
-const dynamoDb = new DynamoDBWrapper(dynamoCredentials)
+const dynamoDb = new DynamoDBWrapper(dynamoCredentials, 'us-east-2')
 
 const table = 'TickerData'
 const expression = 'ticker = :ticker'
