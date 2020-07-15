@@ -1,6 +1,6 @@
 {
   "name": "noodle-dynamo",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "license": "MIT",
   "main": "build/index.js",
   "keywords": [
@@ -27,6 +27,7 @@
     "typescript": "^3.0.3"
   },
   "dependencies": {
+    "@types/node": "^14.0.23",
     "aws-sdk": "^2.635.0"
   }
 }

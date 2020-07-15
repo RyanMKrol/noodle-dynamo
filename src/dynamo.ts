@@ -6,18 +6,17 @@ class DynamoDBWrapper {
 
     AWS.config.update(dynamoCredentials)
     AWS.config.update({
-      region,
+      region
     })
-
   }
 
   async readTable(table: string, expression: string, expressionValues: object) {
     const docClient = new AWS.DynamoDB.DocumentClient()
 
     const params = {
-      TableName : table,
+      TableName: table,
       KeyConditionExpression: expression,
-      ExpressionAttributeValues: expressionValues,
+      ExpressionAttributeValues: expressionValues
     }
 
     return new Promise((resolve, reject) => {
@@ -36,7 +35,7 @@ class DynamoDBWrapper {
 
     const params = {
       TableName: table,
-      Item: item,
+      Item: item
     }
 
     return new Promise((resolve, reject) => {
@@ -49,10 +48,29 @@ class DynamoDBWrapper {
       })
     })
   }
+
+  async deleteItemFromTable(table: string, deleteParams: object) {
+    const docClient = new AWS.DynamoDB.DocumentClient()
+
+    const params = {
+      TableName: table,
+      Key: deleteParams
+    }
+
+    return new Promise((resolve, reject) => {
+      docClient.delete(params, function(err: any, data: any) {
+        if (err) {
+          reject(err)
+        } else {
+          resolve(data)
+        }
+      })
+    })
+  }
 }
 
 function validateCredentials(credentials: any) {
-  if (!credentials.accessKeyId){
+  if (!credentials.accessKeyId) {
     throw new Error('Could not find `accessKeyId` in credentials')
   }
 
