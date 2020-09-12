@@ -15,7 +15,6 @@
     "build"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run-script lint && tsc",
     "lint": "eslint . --ext .ts,.tsx"
   },
