@@ -4,24 +4,24 @@ module.exports = {
     es6: true
   },
   extends: [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended"
+    'eslint:recommended',
+    'plugin:@typescript-eslint/eslint-recommended'
   ],
   globals: {
-    Atomics: "readonly",
-    SharedArrayBuffer: "readonly"
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly'
   },
-  parser: "@typescript-eslint/parser",
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 2018,
-    sourceType: "module"
+    sourceType: 'module'
   },
-  plugins: ["@typescript-eslint"],
+  plugins: ['@typescript-eslint'],
   rules: {
-    "no-unused-vars": "off",
-    indent: ["error", 2],
-    "linebreak-style": ["error", "unix"],
-    quotes: ["error", "single"],
-    semi: ["error", "never"]
+    'no-unused-vars': 'off',
+    indent: ['error', 2],
+    'linebreak-style': ['error', 'unix'],
+    quotes: ['error', 'single'],
+    semi: ['error', 'never']
   }
-};
+}

@@ -17,6 +17,7 @@ Store your credentials somewhere the code can access them.
 Create your wrapper, and then start making calls!
 
 ### Reading
+
 ```
 import DynamoDBWrapper from 'noodle-dynamo'
 import dynamoCredentials from '.../credentials/dynamo.json'
@@ -37,6 +38,7 @@ dynamoDb.readTable(table, expression, expressionData).then((data) => {
 ```
 
 ### Writing
+
 ```
 import DynamoDBWrapper from 'noodle-dynamo'
 import dynamoCredentials from '.../credentials/dynamo.json'
