@@ -1,3 +1,3 @@
-import DynamoDBWrapper from './dynamo'
+import DynamoDBWrapper from "./dynamo";
 
-export default DynamoDBWrapper
+export default DynamoDBWrapper;
