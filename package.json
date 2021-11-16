@@ -27,6 +27,6 @@
   },
   "dependencies": {
     "@types/node": "^14.0.23",
-    "aws-sdk": "^2.635.0"
+    "aws-sdk": "^2.814.0"
   }
 }
